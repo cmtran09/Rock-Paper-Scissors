@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  height: 100vh;
+  background-color: grey;
+  font-family: sans-serif;
+}
+
+.intro h1 {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.score {
+  color: rgb(224, 224, 224);
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.score h2 {
+  font-size: 30px;
+}
+
+.score p {
+  text-align: center;
+  padding: 10px;
+  font-size: 25px;
+}
+
+.arena {
+  background-color: red;
+  text-align: center;
+  color: rgb(224, 224, 224);
+}
+
+.arena button {
+  width: 150px;
+  height: 35px;
+  border: none;
+  color: rgb(224, 224, 224);
+  background: rgb(45, 11, 96);
+  font-size: 15px;
+}
+
+.options {
+  width: 400px;
+  background-color: antiquewhite;
+  align-self: center;
+  margin: 10px auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.options button {
+  width: 100px;
+  height: 35px;
+  border: none;
+  color: rgb(224, 224, 224);
+  background: rgb(96, 58, 153);
+  font-size: 15px;
+}
