@@ -1,9 +1,16 @@
+// NEED TO ADD LOGIC WHERE ANIMATION RESETS (REMOVE THE WIGGLE CLASS) AFTER EACH ANIMATION..
+//
+
 const game = () => {
   const options = document.querySelectorAll(".options button");
   // Possible computer options
   const comupterOptions = ["Rock", "Paper", "Scissors"];
   let pScore = 0;
   let cScore = 0;
+
+  //player hands
+  const pHand = document.querySelector(".player-hand");
+  const cHand = document.querySelector(".computer-hand");
 
   // function to start bring in the game
   const startGame = () => {
@@ -23,7 +30,9 @@ const game = () => {
     });
   };
 
+  //call start game function just after it is defined
   startGame();
+
   // Go through each of the player option buttons and add an eventlister of click that ...
   // runs a function on click
   options.forEach(options => {
@@ -34,14 +43,16 @@ const game = () => {
       // ... then round to nearest interger.
       const compIndex = Math.floor(Math.random() * 3);
       // random interger between 0-2 used to select a string from the computerOptions array ...
+      removeWiggle();
       const computerChoice = comupterOptions[compIndex];
       console.log("comp" + computerChoice);
       console.log(this.textContent);
       //update the hand images
-      playerHand.src = `./images/${this.textContent}.png`;
+      playerHand.src = `./images/H` + `${this.textContent}.png`;
       computerHand.src = `./images/${computerChoice}.png`;
       // Run checker function passing in this.textContent (the contents of the button element) ...
       // and the computer's random choice of rock paper or scissors from array
+      removeWiggle();
       checker(this.textContent, computerChoice);
       console.log(pScore);
       console.log(cScore);
@@ -58,9 +69,15 @@ const game = () => {
     computerScore.innerHTML = cScore;
   };
 
+  const removeWiggle = () => {
+    cHand.classList.remove("winnerShake");
+    pHand.classList.remove("winnerShake");
+  };
+
   const checker = (playerChoice, computerChoice) => {
     if (playerChoice === computerChoice) {
       console.log("Draw");
+      removeWiggle();
       return;
     }
     // When player clicks rock
@@ -68,10 +85,14 @@ const game = () => {
       if (computerChoice === "Scissors") {
         console.log("You Win");
         pScore++;
+        removeWiggle();
+        pHand.classList.add("winnerShake");
         return;
-      } else if (computerChoice === "Rock") {
+      } else if (computerChoice === "Paper") {
         console.log("You Lose");
         cScore++;
+        removeWiggle();
+        cHand.classList.add("winnerShake");
         return;
       }
     }
@@ -80,10 +101,12 @@ const game = () => {
       if (computerChoice === "Paper") {
         console.log("You Win");
         pScore++;
+        pHand.classList.add("winnerShake");
         return;
       } else if (computerChoice === "Rock") {
         console.log("You Lose");
         cScore++;
+        cHand.classList.add("winnerShake");
         return;
       }
     }
@@ -92,10 +115,12 @@ const game = () => {
       if (computerChoice === "Rock") {
         console.log("You Win");
         pScore++;
+        pHand.classList.add("winnerShake");
         return;
       } else if (computerChoice === "Scissors") {
         console.log("You Lose");
         cScore++;
+        cHand.classList.add("winnerShake");
         return;
       }
     }
