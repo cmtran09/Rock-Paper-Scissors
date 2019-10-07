@@ -85,13 +85,11 @@ const game = () => {
       if (computerChoice === "Scissors") {
         console.log("You Win");
         pScore++;
-        removeWiggle();
         pHand.classList.add("winnerShake");
         return;
       } else if (computerChoice === "Paper") {
         console.log("You Lose");
         cScore++;
-        removeWiggle();
         cHand.classList.add("winnerShake");
         return;
       }
