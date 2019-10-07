@@ -10,10 +10,57 @@ section {
   font-family: sans-serif;
 }
 
+.intro button {
+  width: 150px;
+  height: 35px;
+  border: none;
+  color: rgb(224, 224, 224);
+  background: rgb(45, 11, 96);
+  font-size: 15px;
+  cursor: pointer;
+}
+
 .intro h1 {
-  text-align: center;
   padding: 20px;
   margin-bottom: 20px;
+  font-size: 100px;
+  font-family: "Monofett", cursive;
+}
+
+.score h2 {
+  font-size: 25px;
+  font-family: "Notable", sans-serif;
+}
+
+.score p {
+  text-align: center;
+  padding: 10px;
+  font-size: 70px;
+  font-family: "Notable", sans-serif;
+}
+
+.player-hand {
+  transform: scaleX(-1);
+  width: 20%;
+}
+
+.computer-hand {
+  width: 20%;
+}
+
+.player-controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.game-message {
+  padding: 20px 0 20px 0;
+  text-align: center;
+}
+
+.intro {
+  text-align: center;
+  transition: opacity 1s ease;
 }
 
 .score {
@@ -22,31 +69,15 @@ section {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-
-.score h2 {
-  font-size: 30px;
-}
-
-.score p {
-  text-align: center;
-  padding: 10px;
-  font-size: 25px;
+  opacity: 0;
+  transition: opacity 1s ease 1.4s;
 }
 
 .arena {
-  background-color: red;
   text-align: center;
   color: rgb(224, 224, 224);
-}
-
-.arena button {
-  width: 150px;
-  height: 35px;
-  border: none;
-  color: rgb(224, 224, 224);
-  background: rgb(45, 11, 96);
-  font-size: 15px;
+  opacity: 0;
+  transition: opacity 2s ease 2s;
 }
 
 .options {
@@ -56,6 +87,15 @@ section {
   margin: 10px auto 0 auto;
   display: flex;
   justify-content: space-between;
+  opacity: 0;
+  transition: opacity 2s ease 3s;
+}
+
+.message1 {
+  font-family: "Notable", sans-serif;
+  color: rgb(224, 224, 224);
+  opacity: 0;
+  transition: opacity 3.5s ease 4s;
 }
 
 .options button {
@@ -65,4 +105,15 @@ section {
   color: rgb(224, 224, 224);
   background: rgb(96, 58, 153);
   font-size: 15px;
+  cursor: pointer;
+}
+
+.fadeIn {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.fadeOut {
+  opacity: 0;
+  pointer-events: none;
 }
